@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">
+    <title>给宝宝的人生加点料</title>
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1273780611'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273780611' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <link rel="stylesheet" type="text/css" href="../css/uploadImages.css?id=<%=Math.random()%" />
+</head>
+<body>
+<!--upload page start-->
+<div id="schedule">
+    <div id="upload">
+        <!--<img class="img_header" src="../images/u_header.png"/>-->
+        <!--<div style="height: 40px"></div>-->
+        <div id="clipArea" style="height: 500px">
+            <div class="clip_up"></div>
+        </div>
+        <div style="height: 300px">
+
+        </div>
+
+        <div class="sub_btn" id="submit"></div>
+        <div class="img_button" id="img_button">
+            <input class="upimageinput" type="file" id="file" accept="image/*" value="">
+        </div>
+    </div>
+    <!--upload page end-->
+    <!--第一把料-->
+    <div class="addThing addThingsOne">
+        <div class="content">
+            <div class="question question_one"></div>
+            <img src="../images/light.png"/>
+            <img src="../images/qBall.png"/>
+            <div class="question question_two"></div>
+            <img src="../images/muma.png"/>
+            <div class="question question_thr"></div>
+            <img src="../images/ball2.png"/>
+        </div>
+        <div class="child childOne">
+            <img src="../images/ball.png"/>
+        </div>
+    </div>
+    <!--第二把料-->
+    <div class="addThing addThingsTwo">
+        <div class="content">
+            <div class="question question_one"></div>
+            <img src="../images/light.png"/>
+            <img src="../images/qBall.png"/>
+            <img src="../images/muma.png"/>
+            <img src="../images/ball2.png"/>
+            <div class="question question_two"></div>
+            <div class="question question_thr"></div>
+        </div>
+        <div class="child childTwo">
+            <img src="../images/ball.png"/>
+        </div>
+    </div>
+    <!--第三把料-->
+    <div class="addThing addThingsThr">
+        <div class="content">
+            <img src="../images/light.png"/>
+            <img src="../images/qBall.png"/>
+            <img src="../images/muma.png"/>
+            <img src="../images/ball2.png"/>
+            <div class="question question_one"></div>
+            <div class="question question_two"></div>
+            <div class="question question_thr"></div>
+        </div>
+        <div class="child childThr">
+            <img src="../images/ball.png"/>
+        </div>
+    </div>
+    <!--第四把料-->
+    <div class="addThing addThingsFour">
+        <div class="content">
+            <img src="../images/light.png"/>
+            <img src="../images/qBall.png"/>
+            <img src="../images/muma.png"/>
+            <img src="../images/ball2.png"/>
+            <div class="question question_one"></div>
+            <div class="question question_two"></div>
+            <div class="question question_thr"></div>
+        </div>
+        <div class="child childFour">
+            <img src="../images/ball.png"/>
+        </div>
+    </div>
+    <!--正在加料中-->
+    <div id="loading" class="adding">
+        <!--<div class="loadText"></div>-->
+        <img src="../images/adding.png"/>
+        <img src="../images/mainPage/load.png"/>
+        <div class="progress">
+            <div class="pro"></div>
+        </div>
+    </div>
+</div>
+<!--结果页-->
+<div id="result" style="height: 1206px;">
+    <img id="img1" src="" width="750">
+    <img id="img2" class="real" src="" width="750">
+</div>
+</body>
+<script src="../js/libs/jquery-2.1.1.min.js"></script>
+<script src="../js/libs/hammer.min.js"></script>
+<script src="../js/libs/iscroll-zoom-min.js"></script>
+<script src="../js/libs/lrz.all.bundle.js"></script>
+<script src="../js/libs/PhotoClip.js"></script>
+<!--<script src="../js/main.js?id=1234"></script>-->
+<script src="../js/main.js?vid=<%=Math.random()%>" type="text/javascript"></script>
+<script src="../js/libs/jweixin-1.2.0.js"></script>
+<script src="../js/utils.js"></script>
+<script>
+    let currentUrl = location.href.split('#')[0];
+    let shareWord = {
+        "title": '宝宝加料后竟变成。。。',
+        "desc": '慎！重！加！料！',
+        "imgUrl": API_PATH + product + '/images/cover.png',
+        "localHref": API_PATH + product + '/index.html'
+    };
+    setWxShareConent(currentUrl, shareWord);
+</script>
+</html>

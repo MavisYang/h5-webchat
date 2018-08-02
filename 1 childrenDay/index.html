@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">
+    <title>给宝宝的人生加点料</title>
+    <script type="text/javascript">
+        var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+        document.write(unescape("%3Cspan id='cnzz_stat_icon_1273780611'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273780611' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/uploadImages.css?id=<%=Math.random()%>"/>
+</head>
+<body>
+    <!--upload page start-->
+    <div id="loading">
+        <!--<div class="loadText"></div>-->
+        <img src="images/mainPage/loading.png"/>
+        <img src="images/mainPage/load.png"/>
+        <div class="progress">
+            <div class="pro pro_1"></div>
+        </div>
+    </div>
+    <div id="readyToDo">
+        <img class="title" src="images/mainPage/title.png" style="margin-top: 65px">
+        <div style="position: relative; width: 635px; margin: 54px auto">
+            <div class="ball"></div>
+            <div class="ball"></div>
+            <div class="heart"></div>
+            <div class="voice"></div>
+            <div class="sound"></div>
+            <div class="screen">
+                <div class="wenhao"></div>
+            </div>
+            <!--<img src="images/mainPage/bg4.png">-->
+        </div>
+        <div class="startBtn"></div>
+    </div>
+</body>
+<!--<script src="js/route.js"></script>-->
+<script src="js/libs/jquery-2.1.1.min.js"></script>
+<!--<script src="js/index.js?id=1234"></script>-->
+<script src="js/index.js?v=<%=Math.random()%>" type="text/javascript"></script>
+<script src="js/libs/jweixin-1.2.0.js"></script>
+<script src="js/utils.js"></script>
+<script>
+    let currentUrl = location.href.split('#')[0];
+    let shareWord = {
+        "title": '宝宝加料后竟变成。。。',
+        "desc": '慎！重！加！料！',
+        "imgUrl": API_PATH + product + '/images/cover.png',
+        "localHref": currentUrl
+    };
+    setWxShareConent(currentUrl, shareWord);
+</script>
+</html>

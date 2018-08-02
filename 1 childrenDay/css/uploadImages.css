@@ -1,0 +1,764 @@
+html, body {
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+}
+#cnzz_stat_icon_1273780611 > a{
+    display: none;
+}
+a[title='站长统计']{
+    display: none;
+}
+/*loading*/
+#loading {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: #FED03F;
+}
+
+#loading img {
+    margin-top: 439px;
+}
+
+#loading .progress {
+    width: 480px;
+    height: 42px;
+    border: 4px solid #000000;
+    border-radius: 27px;
+    margin: 25px auto;
+    background-color: #FFFFFF;
+    overflow: hidden;
+    /*background: url("../images/mainPage/loading2.png") no-repeat center #FFFFFF;*/
+}
+.adding{
+    display: none;
+}
+
+@keyframes loading {
+    0% {
+        visibility: visible;
+        margin-left: -480px;
+    }
+    30% {
+        margin-left: -320px;
+    }
+    60% {
+        margin-left: -160px;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
+@-webkit-keyframes animate8 {
+    0%, 40%, 100% {
+        -webkit-transform: translate3d(0, 0, 0)
+    }
+    10%, 20% {
+        -webkit-transform: translate3d(-5px, 0, 0)
+    }
+    15%, 30% {
+        -webkit-transform: translate3d(5px, 0, 0)
+    }
+}
+
+#loading .progress .pro {
+    /*position: absolute;*/
+    /*top: -26px;*/
+    /*left: -480px;*/
+    /*visibility: hidden;*/
+    /*margin-left: -480px;*/
+    width: 480px;
+    height: 42px;
+    /*border-radius: 26px;*/
+    /*margin: 0 auto;*/
+    background: url("../images/mainPage/progress.png") no-repeat center;
+    /*animation: loading 2s linear;*/
+}
+
+#loading .progress .pro_1{
+    animation: loading 1.5s linear;
+}
+
+/*开始页*/
+#readyToDo {
+    display: none;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: url("../images/bg.png") no-repeat;
+    background-size: cover;
+}
+
+#readyToDo .screen{
+    width: 635px;
+    height: 520px;
+    margin: 0 auto;
+    background: url("../images/mainPage/bg4.png") center no-repeat;
+}
+
+#readyToDo .screen .wenhao{
+    width: 101px;
+    height: 185px;
+    position: absolute;
+    top: 101px;
+    right: 111px;
+    background: url("../images/mainPage/wenhao.png") center no-repeat;
+    -webkit-animation: animate8 1s linear 1s infinite;
+}
+
+#readyToDo .startBtn {
+    width: 479px;
+    height: 121px;
+    background-size: cover;
+    margin: 0 auto;
+    text-align: center;
+    background: url("../images/mainPage/start.png") no-repeat;
+}
+
+#readyToDo .startBtn:focus,#readyToDo .startBtn:active {
+    background: url("../images/mainPage/start2.png") no-repeat;
+}
+
+/*气球上浮动画*/
+@keyframes runBall {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        left: 50px;
+        top: 80px;
+        background-size: 50%;
+    }
+    90% {
+        left: 24px;
+        top: 33px;
+        background-size: 100%;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/*爱心动画*/
+@keyframes runHeart {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        background-size: 50%;
+    }
+    90% {
+        background-size: 100%;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/*渐入渐出*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes shock {
+    from {
+        left: 52px;
+    }
+    to {
+        left: 56px;
+    }
+}
+
+@keyframes titleShock {
+    0%, 50%, 100% {
+        -webkit-transform: scale(1) translate(0)
+    }
+    25% {
+        -webkit-transform: scale(1.004) translateY(0.3%)
+    }
+    75% {
+        -webkit-transform: scale(1.004) translateY(-.3%)
+    }
+}
+
+@keyframes animate3 {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        left: 230px;
+        top: 80px;
+        background-size: 50%;
+    }
+    90% {
+        left: 250px;
+        top: 33px;
+        background-size: 100%;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#readyToDo .ball {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 50px;
+    top: 80px;
+    background: url("../images/mainPage/qipao.png") no-repeat center;
+    background-size: 50%;
+    /*animation: fadeIn 1s 3s infinite, runBall 2s 1s infinite, fadeOut 1s 3s infinite;*/
+
+}
+
+#readyToDo .ball:nth-child(1){
+    animation: runBall 2s infinite;
+}
+
+#readyToDo .ball:nth-child(2){
+    left: 230px;
+    animation: animate3 2s 1s infinite;
+}
+
+#readyToDo .title {
+    animation: titleShock .2s infinite reverse;
+}
+
+#readyToDo .heart {
+    width: 35px;
+    height: 31px;
+    position: absolute;
+    right: 40px;
+    top: 50px;
+    background: url("../images/mainPage/aixin.png") no-repeat center;
+    background-size: 50%;
+    /*animation: fadeIn 1s 3s infinite, runHeart 2s 1s infinite, fadeOut 1s 3s infinite;*/
+    animation: runHeart 2s infinite;
+}
+
+#readyToDo .voice {
+    width: 65px;
+    height: 64px;
+    position: absolute;
+    left: 53px;
+    bottom: 50px;
+    background: url("../images/mainPage/voice.png") no-repeat center;
+    background-size: 100%;
+    animation: shock .3s .5s infinite reverse;
+}
+
+#readyToDo .sound {
+    width: 24px;
+    height: 51px;
+    position: absolute;
+    left: 128px;
+    bottom: 56px;
+    background: url("../images/mainPage/voice2.png") no-repeat center;
+    background-size: 100%;
+    animation: fadeIn .5s infinite reverse;
+}
+
+
+#schedule{
+    height: 100%;
+}
+
+/*上传头像*/
+#upload {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: url("../images/bg_up.png") no-repeat center;
+    background-size: cover;
+}
+
+#upload .img_header {
+    width: 90%;
+    margin-top: 50px;
+}
+
+#clipArea {
+    /*margin: 0 auto;*/
+    /*width: 500px;*/
+    height: 500px;
+    user-select: none;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
+
+}
+
+#upload .img_border {
+    width: 416px;
+    height: 416px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin: 40px auto;
+    /*border: 3px solid #000000;*/
+    overflow: hidden;
+    /*background: url("../images/img_border.png") no-repeat center #FFFFFF;*/
+    background-size: 94% 94%;
+}
+
+#upload .img_button {
+    width: 479px;
+    height: 121px;
+    background: url('../images/upload2.png') no-repeat center;
+    background-size: cover;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#upload .img_button:focus, #upload .img_button:active {
+    background: url(../images/upload.png) no-repeat center;
+}
+
+#upload .reUpload {
+    margin: 44px auto 0 auto;
+    background: url(../images/reUpload.png) no-repeat center;
+}
+
+#upload .reUpload:focus, #upload .reUpload:active {
+    background: url(../images/reUpload2.png) no-repeat center;
+}
+
+#upload .img_button .upimageinput {
+    opacity: 0;
+    filter: alpha(opacity:0);
+    width: 479px;
+    height: 121px;
+    cursor: pointer;
+    outline: medium;
+    outline: none;
+}
+
+#upload .sub_btn {
+    width: 479px;
+    height: 121px;
+    background: url(../images/submit.png) no-repeat center;
+    background-size: cover;
+    margin: 0 auto;
+    text-align: center;
+    display: none;
+}
+
+#upload .sub_btn:active {
+    background: url(../images/submit2.png) no-repeat center;
+}
+
+.photo-clip-mask {
+    display: none !important;
+}
+
+.photo-clip-layer {
+    overflow: hidden;
+    border: 5px solid #000000;
+    border-radius: 50%;
+    /*background:;*/
+    background: #FFFFFF;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+.clip_bottom {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 485px;
+    height: 399px;
+    margin-left: -242.5px;
+    margin-top: -199.5px;
+    background: url("../images/face3.png") no-repeat center;
+    z-index: 0;
+}
+
+.clip_up {
+    position: absolute;
+    width: 139px;
+    height: 45px;
+    background: url('../images/face2.png') no-repeat center;
+    background-size: cover;
+    left: 50%;
+    margin-left: -65px;
+    margin-top: 77px;
+    z-index: 2;
+}
+
+/*加料*/
+.addThing {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: url("../images/bg.png") no-repeat;
+    background-size: cover;
+    display: none;
+}
+
+.addThing .content {
+    width: 612px;
+    padding-top: 62px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.addThing .content img{
+    position: absolute;
+}
+
+/*加料动效果*/
+@keyframes light {
+    0%, 40%, 100% {
+        -webkit-transform: translate3d(0, 0, 0)
+    }
+    10%, 20% {
+        -webkit-transform: translate3d(-5px, 0, 0)
+    }
+    15%, 30% {
+        -webkit-transform: translate3d(5px, 0, 0)
+    }
+}
+
+@keyframes float {
+    0%, 50%, 100% {
+        -webkit-transform: translate(0)
+    }
+    25% {
+        -webkit-transform: translateY(-80px)
+    }
+    75% {
+        -webkit-transform: translateY(80px)
+    }
+}
+
+@keyframes rotate {
+    0%, 50%, 100% {
+        -webkit-transform: rotate(0)
+    }
+    25% {
+        -webkit-transform: rotate(15deg)
+    }
+    75% {
+        -webkit-transform: rotate(-35deg)
+    }
+}
+
+@keyframes inMoveOut {
+
+}
+
+@keyframes outMoveIn {
+
+}
+
+@keyframes float1 {
+    0%, 50%, 100% {
+        -webkit-transform: scale(1) translate(0)
+    }
+    25% {
+        -webkit-transform: scale(1.01) translateY(3%)
+    }
+    75% {
+        -webkit-transform: scale(1.01) translateY(-3%)
+    }
+}
+
+@keyframes animate1 {
+    0%{
+        -webkit-transform:  scale(0) translateX(0px) translateY(100px)
+    }
+    50% {
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        -webkit-transform:  scale(1) translateX(-50px) translateY(-80px)
+    }
+}
+
+@keyframes animate2 {
+    0%{
+        -webkit-transform:  scale(0) translateX(0px) translateY(100px)
+    }
+    50% {
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        -webkit-transform:  scale(1) translateX(50px) translateY(-80px)
+    }
+}
+
+
+.addThing .content img:nth-of-type(1){
+    left: 310px;
+    top: 34px;
+    animation: light .3s infinite;
+}
+
+.addThing .content img:nth-of-type(2){
+    right: 80px;
+    top: 120px;
+    animation: float 4s linear .6s infinite;
+}
+
+.addThing .content img:nth-of-type(3){
+    left: 160px;
+    top: 332px;
+    transform: rotate(-25deg);
+    -webkit-transform-origin: 45% 100%;
+    animation: rotate 3s linear infinite;
+}
+
+.addThing .content img:nth-of-type(4){
+    right: 20px;
+    bottom: -25px;
+    transform: scale(0);
+    animation: animate2 2s 1s infinite;
+}
+
+.child {
+    width: 680px;
+    height: 439px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.child img{
+    position: absolute;
+    left: 305px;
+    top: 48px;
+    transform: scale(0);
+    animation: animate1 2s infinite;
+}
+
+.addThingsOne .content .question_one {
+    width: 298px;
+    height: 224px;
+    background: url("../images/first/one1.png") no-repeat center;
+    background-size: cover;
+    animation: float1 2s linear 0s infinite;
+}
+
+.addThingsOne .content .question_one_active {
+    background: url("../images/first/one.png") no-repeat center;
+}
+
+.addThingsOne .content .question_two {
+    width: 312px;
+    height: 223px;
+    margin-left: 309px;
+    background: url("../images/first/three1.png") no-repeat center;
+    background-size: cover;
+    animation: float1 2s linear .3s infinite;
+}
+
+.addThingsOne .content .question_two_active{
+    background: url("../images/first/two.png") no-repeat center;
+}
+
+
+.addThingsOne .content .question_thr {
+    width: 306px;
+    height: 222px;
+    margin-left: 77px;
+    margin-top: 22px;
+    background: url("../images/first/two1.png") no-repeat center;
+    background-size: cover;
+    animation: float1 2s linear .6s infinite;
+}
+
+.addThingsOne .content .question_thr_active{
+    background: url("../images/first/three.png") no-repeat center;
+}
+
+.addThingsOne .childOne {
+    background: url("../images/first/child1.png") no-repeat center;
+}
+
+/*//第二把料*/
+.addThingsTwo {
+    display: none;
+}
+
+.addThingsTwo .content .question_one {
+    width: 298px;
+    height: 224px;
+    /*margin-left: 64px;*/
+    background: url("../images/second/one.png") no-repeat center;
+    background-size: cover;
+    animation: float1 2s linear 0s infinite;
+}
+
+.addThingsTwo .content .question_one_active {
+    background: url("../images/second/one2.png") no-repeat center;
+}
+
+.addThingsTwo .content .question_two {
+    width: 306px;
+    height: 218px;
+    margin-left: 309px;
+    background: url("../images/second/two.png") no-repeat center;
+    background-size: cover;
+    animation: float1 2s linear .3s infinite;
+}
+
+.addThingsTwo .content .question_two_active{
+    background: url("../images/second/two2.png") no-repeat center;
+}
+
+.addThingsTwo .content .question_thr {
+    width: 330px;
+    height: 223px;
+    margin-left: 60px;
+    margin-top: 22px;
+    background: url("../images/second/thr.png") no-repeat center;
+    background-size: cover;
+    animation: float1 2s linear .6s infinite;
+}
+
+.addThingsTwo .content .question_thr_active{
+    background: url("../images/second/thr2.png") no-repeat center;
+}
+
+.addThingsTwo .childTwo {
+    background: url("../images/second/child2.png") no-repeat center;
+}
+
+/*第三把料*/
+.addThingsThr {
+    display: none;
+}
+
+.addThingsThr .content .question_one {
+    width: 353px;
+    height: 242px;
+    background: url("../images/thrid/Group 11.png") no-repeat center;
+    background-size: cover;
+    animation: float1 2s linear 0s infinite;
+}
+
+.addThingsThr .content .question_one_active{
+    background: url("../images/thrid/3-1.png") no-repeat center;
+}
+
+.addThingsThr .content .question_two {
+    width: 256px;
+    height: 218px;
+    margin-left: 320px;
+    background: url("../images/thrid/Group 10.png") no-repeat center;
+    background-size: cover;
+    animation: float1 2s linear .3s infinite;
+}
+
+.addThingsThr .content .question_two_active{
+    background: url("../images/thrid/3-2.png") no-repeat center;
+}
+
+.addThingsThr .content .question_thr {
+    width: 311px;
+    height: 223px;
+    margin-left: 70px;
+    margin-top: 22px;
+    background: url("../images/thrid/Group 12.png") no-repeat center;
+    background-size: cover;
+    animation: float1 2s linear .6s infinite;
+}
+
+.addThingsThr .content .question_thr_active{
+    background: url("../images/thrid/3-3.png") no-repeat center;
+}
+
+.addThingsThr .childThr {
+    background: url("../images/thrid/Group 6.png") no-repeat center;
+}
+
+/*第四把料*/
+.addThingsFour {
+    display: none;
+}
+
+.addThingsFour .content .question_one {
+    width: 293px;
+    height: 224px;
+    /*margin-left: 64px;*/
+    background: url("../images/four/Group 16.png") no-repeat center;
+    background-size: cover;
+    animation: float1 2s linear 0s infinite;
+}
+
+.addThingsFour .content .question_one_active{
+    background: url("../images/four/4-1.png") no-repeat center;
+}
+
+.addThingsFour .content .question_two {
+    width: 256px;
+    height: 218px;
+    margin-left: 320px;
+    background: url("../images/four/Group 14.png") no-repeat center;
+    background-size: cover;
+    animation: float1 2s linear .3s infinite;
+}
+
+.addThingsFour .content .question_two_active{
+    background: url("../images/four/4-2.png") no-repeat center;
+}
+
+.addThingsFour .content .question_thr {
+    width: 311px;
+    height: 223px;
+    margin-left: 70px;
+    margin-top: 22px;
+    background: url("../images/four/Group 15.png") no-repeat center;
+    background-size: cover;
+    animation: float1 2s linear .6s infinite;
+}
+
+.addThingsFour .content .question_thr_active{
+    background: url("../images/four/4-3.png") no-repeat center;
+}
+
+.addThingsFour .childFour {
+    background: url("../images/four/Group 6.png") no-repeat center;
+}
+
+#result{
+    display: none;
+}
+
+#result img{
+    /*width: 750px;*/
+}
+#result #img2{
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*width: 750px;*/
+    opacity: 0;
+}
+
+.real{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
