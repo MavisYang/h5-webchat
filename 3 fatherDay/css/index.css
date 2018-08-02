@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+}
+
+body,html{
+    overflow-x: hidden;
+    -webkit-overflow-scrolling:touch;
+}
+canvas{
+    display: block;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling:touch;
+}
+
+.result img#showImg{
+    min-width: 100%;
+    min-height: 100%;
+    display: block;
+}
+.real{
+    position: absolute;
+    left: 0;
+    top:0;
+    opacity: 0;
+}
+a[title='站长统计']{
+    display: none;
+}
+a,button,input{-webkit-tap-highlight-color:rgba(255,0,0,0);}
+input::-webkit-input-placeholder{color: #A8A8A8;}
+input:-moz-placeholder{color: #A8A8A8;}
+input::-moz-placeholder{color: #A8A8A8;}
+input:-ms-input-placeholder{color: #A8A8A8;}
+.container{
+    width: 100%;
+    min-height:100%;
+}
+.border{
+    background: #FFFFFF;
+    border: 5px solid #000000;
+    border-radius: 27px;
+}
+.borderHover{
+    background: #0A77FF;
+    color: #FFFFFF !important;
+}
+
+.form{
+    position: absolute;
+    /*top: 62%;*/
+    top: 830px;
+    left: 50%;
+    transform: translate(-50%);
+
+}
+input.nickName{
+    font-family: PingFangSC-Medium;
+    font-size: 34px;
+    /*color: #A8A8A8;*/
+    width: 573px;
+    height: 100px;
+    line-height: 100px;
+    color: #444444;
+    text-indent: 30px;
+    margin-bottom: 57px;
+
+}
+.btn{
+    background: url("../images/button_begin.png") no-repeat;
+    width: 565px;
+    height: 129px;
+    cursor: pointer;
+    /*margin-bottom: 96px;*/
+}
+.topicView{
+    min-height: 100%;
+}
+
+.topicView .title{
+    text-align: center;
+
+}
+.topicView .title img{
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+.listItem{
+    margin: 0 auto;
+    display: table;
+    list-style: none;
+}
+.itemLi{
+    width: 462px;
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    font-family: PingFangSC-Semibold;
+    font-size: 36px;
+    color: #0A77FF;
+    padding: 15px 54px;
+}
+.itemLi-imgBox{
+    width: 64px;
+    height: 64px;
+
+}
+.itemLi img{
+    width: 64px;
+    height: 64px;
+}
+.itemLi-nameBox{
+    width: calc(100% - 94px);
+    margin-left: 30px;
+}
+.button-next{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.resultValue{
+    /*font-family: PingFangSC-Semibold;*/
+    /*font-size: 40px;*/
+    /*text-align: center;*/
+    /*padding-top: 160px;*/
+
+    font-family: PingFangSC-Semibold;
+    font-size: 40px;
+    position: absolute;
+    z-index: 999;
+    top: 160px;
+    left: 49%;
+    transform: translate(-50%);
+}
+.resultValue .nickName{
+    color: #0A77FF;
+    border-bottom: 5px solid #0A77FF;
+    /*text-decoration: underline;*/
+}
+.resultValue .value{
+    color: #222222;
+    margin-left: 5px;
+}
+

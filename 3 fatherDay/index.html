@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">
+    <title>测一测</title>
+    <link rel="stylesheet" href="css/index.css?vid=<%=Math.random()%>" type="text/css">
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/jweixin-1.2.0.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/index.js?vid=<%=Math.random()%>"></script>
+    <script type="text/javascript">
+        console.log(type)
+        if(type==1){ //1:群宠 2:小助手朋友圈 other:景栗社群
+            //群宠：http://wx.gemii.cc/gemii/fatherDay/index.html?type=1
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1273953640'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1273953640' type='text/javascript'%3E%3C/script%3E"));
+        }else if(type==2){
+            //小助手朋友圈：http://wx.gemii.cc/gemii/fatherDay/index.html?type=2
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1273953663'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1273953663' type='text/javascript'%3E%3C/script%3E"));
+        }else{
+            //监测 景栗社群:http://wx.gemii.cc/gemii/fatherDay/index.html
+            var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+            document.write(unescape("%3Cspan id='cnzz_stat_icon_1273946170'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1273946170' type='text/javascript'%3E%3C/script%3E"));
+        }
+
+    </script>
+    <script>
+        /******************************微信分享操作*******************************/
+        var currentUrl = location.href.split('#')[0];
+        var shareWord = {
+            "title": '测一测孩子他爸的价值是多少？',
+            "desc": '满分奶爸养成计划！',
+            "imgUrl":API_PATH+product+'/images/sharePic.png' ,
+            "localHref": location.href
+        };
+        setWxShareConent(currentUrl, shareWord,type);
+    </script>
+</head>
+<body onload="controller.init()" >
+<div class="form" style="display: block;">
+    <input type="text" placeholder="输入宝宝的昵称" class="nickName border" maxlength="4">
+    <div class="btn"></div>
+</div>
+
+<div class="container" style="display: none">
+    <!--题目一-->
+    <div class="topicView topicView-1" style="display: block">
+        <p class="title">
+            <img src="./images/pic_tit1.png" alt="">
+        </p>
+        <ul class="listItem">
+            <li class="itemLi border" data-point="-1" data-index="1">
+                <div class="itemLi-imgBox"><img src="./images/option_a.png" alt=""></div>
+                <div class="itemLi-nameBox">不理睬</div>
+            </li>
+            <li class="itemLi border" data-point="0" data-index="1">
+                <div class="itemLi-imgBox"><img src="./images/option_b.png" alt=""></div>
+                <div class="itemLi-nameBox">白天会喂奶</div>
+            </li>
+            <li class="itemLi border" data-point="+1" data-index="1">
+                <div class="itemLi-imgBox"><img src="./images/option_c.png" alt=""></div>
+                <div class="itemLi-nameBox">半夜起来喂奶</div>
+            </li>
+        </ul>
+        <div class="button-next">
+            <img src="./images/button_next.png" alt="" onclick="controller.nextOption($(this))">
+        </div>
+    </div>
+    <!--题目二-->
+    <div class="topicView topicView-2" style="display: none">
+        <p class="title">
+            <img src="./images/pic_tit2.png" alt="">
+        </p>
+        <ul class="listItem">
+            <li class="itemLi border" data-point="-1" data-index="2">
+                <div class="itemLi-imgBox"><img src="./images/option_a.png" alt=""></div>
+                <div class="itemLi-nameBox">丢给妈妈去处理</div>
+            </li>
+            <li class="itemLi border" data-point="0" data-index="2">
+                <div class="itemLi-imgBox"><img src="./images/option_b.png" alt=""></div>
+                <div class="itemLi-nameBox">主动换，虽然笨手笨脚</div>
+            </li>
+            <li class="itemLi border" data-point="+1" data-index="2">
+                <div class="itemLi-imgBox"><img src="./images/option_c.png" alt=""></div>
+                <div class="itemLi-nameBox">非常专业的换好了</div>
+            </li>
+        </ul>
+        <div class="button-next">
+            <img src="./images/button_next.png" alt="" onclick="controller.nextOption($(this))">
+        </div>
+    </div>
+    <!--题目三-->
+    <div class="topicView topicView-3" style="display: none">
+        <p class="title">
+            <img src="./images/pic_tit3.png" alt="">
+        </p>
+        <ul class="listItem">
+            <li class="itemLi border" data-point="+1" data-index="3">
+                <div class="itemLi-imgBox"><img src="./images/option_a.png" alt=""></div>
+                <div class="itemLi-nameBox">陪宝宝玩玩具</div>
+            </li>
+            <li class="itemLi border" data-point="+1" data-index="3">
+                <div class="itemLi-imgBox"><img src="./images/option_b.png" alt=""></div>
+                <div class="itemLi-nameBox">给宝宝讲故事</div>
+            </li>
+            <li class="itemLi border" data-point="-1" data-index="3">
+                <div class="itemLi-imgBox"><img src="./images/option_c.png" alt=""></div>
+                <div class="itemLi-nameBox">不会哄，让宝宝哭累了就会睡了</div>
+            </li>
+        </ul>
+        <div class="button-next">
+            <img src="./images/button_next.png" alt="" onclick="controller.nextOption($(this))">
+        </div>
+    </div>
+    <!--题目四-->
+    <div class="topicView topicView-4" style="display: none">
+        <p class="title">
+            <img src="./images/pic_tit4.png" alt="">
+        </p>
+        <ul class="listItem">
+            <li class="itemLi border" data-point="-1" data-index="4">
+                <div class="itemLi-imgBox"><img src="./images/option_a.png" alt=""></div>
+                <div class="itemLi-nameBox">笨手笨脚，宝宝喝了不少洗澡水</div>
+            </li>
+            <li class="itemLi border" data-point="+1" data-index="4">
+                <div class="itemLi-imgBox"><img src="./images/option_b.png" alt=""></div>
+                <div class="itemLi-nameBox">在宝妈帮宝宝洗澡时候搭把手</div>
+            </li>
+            <li class="itemLi border" data-point="+1" data-index="4">
+                <div class="itemLi-imgBox"><img src="./images/option_c.png" alt=""></div>
+                <div class="itemLi-nameBox">认真洗干净，很有耐心</div>
+            </li>
+        </ul>
+        <div class="button-next">
+            <img src="./images/button_next.png" alt="" onclick="controller.nextOption($(this))">
+        </div>
+    </div>
+    <!--题目五-->
+    <div class="topicView topicView-5" style="display: none">
+        <p class="title">
+            <img src="./images/pic_tit5.png" alt="">
+        </p>
+        <ul class="listItem">
+            <li class="itemLi border" data-point="-1" data-index="5">
+                <div class="itemLi-imgBox"><img src="./images/option_a.png" alt=""></div>
+                <div class="itemLi-nameBox">孩子他妈，快看看孩子去</div>
+            </li>
+            <li class="itemLi border" data-point="+1" data-index="5">
+                <div class="itemLi-imgBox"><img src="./images/option_b.png" alt=""></div>
+                <div class="itemLi-nameBox">老婆，赶快上车，我们去医院</div>
+            </li>
+            <li class="itemLi border" data-point="-1" data-index="5">
+                <div class="itemLi-imgBox"><img src="./images/option_c.png" alt=""></div>
+                <div class="itemLi-nameBox">孩子应该没什么大毛病，熬一熬就好了</div>
+            </li>
+        </ul>
+        <div class="button-next">
+            <img src="./images/button_done.png" alt="" onclick="controller.nextOption($(this))">
+        </div>
+    </div>
+</div>
+<div class="result" style="display: none;">
+    <img id="showImg" src="" width="750">
+    <img id="shareImg" class="real" src="" width="750">
+</div>
+</body>
+<script>
+
+</script>
+</html>
