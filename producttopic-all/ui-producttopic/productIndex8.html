@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">
+    <title>澳臻辅食专题</title>
+    <style>
+        body{
+            background: url("images/Backgroup-8.png") repeat-y;
+        }
+    </style>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/jweixin-1.2.0.js"></script>
+    <script src="js/data8.js"></script>
+    <script>
+        /******************************微信分享操作*******************************/
+        var currentUrl = location.href.split('#')[0];
+        var shareWord= {
+            "title": '澳臻宝宝辅食专场',
+            "desc":'不加一滴水的纯正果蔬辅食，第二件半价哦',
+            "imgUrl":API_PATH+product+'/images/sharePic8.png',
+            "localHref":location.href+'&type=1'
+        }
+        setWxShareConent(currentUrl,shareWord)
+    </script>
+</head>
+<body>
+<div class='ms-productTopic productTopic8'>
+    <div class="product-container container">
+        <div class="titleImg"></div>
+        <div class="productBox">
+            <!--<div class="productSpike">-->
+            <!--</div>-->
+            <!--<div class="productListWrapper">-->
+            <!--</div>-->
+
+        </div>
+    </div>
+    <div class="model" style="display: none">
+        <div>
+            <img src="images/shareArrow.png" alt="">
+            <p>活动已生成<br>快让小伙伴们看看吧～</p>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        init()
+        if(getQueryString('type')!=1){ //分享的链接，1表示 不需要提示分享
+            $(".model").show()
+            handleModel()
+        }
+    })
+    function init() {
+        //获取代理ID
+        var agentID = 'Q2ZU'
+        var url = 'https://m.gemii.maimaias.cn/sq/'
+        if (getQueryString('agentID') != 'null' && getQueryString('agentID') != null) {
+            agentID = getQueryString('agentID')
+        }
+        console.log(agentID, 1)
+        console.log(productData, 2)
+
+        //秒杀
+        productData.spikeData.forEach(function (task, index) {
+            var branch = ' <div class="productSpike">' +
+                '           <div class="ps-title"><p>' + task.dataTitleTop + '</p></div>' +
+                '           <div class="ps-product productSpike' + index + '"></div>' +
+                '           </div>'
+            $('.productBox').append(branch)
+            task.dataTitle.map(function (item) {
+                var spikeList = '<a class="spikeBox" id="spikeBox-' + index + '" data-href="' + url + item.linkUrl + agentID + '" data-index="1' + index + '" href="' + url + item.linkUrl + agentID + '">' +
+                    '              <div class="wrapper">' +
+                    '                  <div class="ps-p-left">' +
+                    '                    <img src="' + item.imgUrl + '" alt="">' +
+                    '                   </div>' +
+                    '                   <div class="ps-p-right">' +
+                    '                       <div class="spikeTitle">' + item.title + '</div>' +
+                    '                       <div class="spikeInfo">' +
+                    '                           <p class="info-num">¥<span>' + item.price + '</span></p>' +
+                    '                           <p class="info-num">' + judgeFunc(item.halfPrice, '第二件 半价', '') + '</p>' +
+                    '                           <p class="info-time"><span>立即购买</span></p>' +
+                    '                       </div>' +
+                    '                    </div>' +
+                    '               </div>' +
+                    '               </a>';
+                listAppend(index, spikeList, 'SPIKE')
+            })
+        })
+    }
+    function judgeFunc(state, str1, str2) {
+        return state ? str1 : str2;
+    }
+</script>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">
+    <title>儿童图书专场</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/jweixin-1.2.0%20copy.js"></script>
+    <script>
+        /*****************************judage the browse*******************************/
+        // 对浏览器的UserAgent进行正则匹配，不含有微信独有标识的则为其他浏览器
+//         var useragent = navigator.userAgent;
+//         if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
+//             // 这里警告框会阻塞当前页面继续加载
+//             alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+//             // 以下代码是用javascript强行关闭当前页面
+//             var opened = window.open('about:blank', '_self');
+//             opened.opener = null;
+//             opened.close();
+//         }
+
+        /******************************微信分享操作*******************************/
+        var currentUrl = location.href.split('#')[0];
+        var url = encodeURIComponent(currentUrl);
+        $.ajax({
+            type:'GET',
+            url:"/wx/getJssdkConfig?url=" + url,
+            success:function (data) {
+                wx.config({
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: data.appid, // 必填，公众号的唯一标识
+                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                    signature: data.signature,// 必填，签名，见附录1
+                    jsApiList: [
+                        'onMenuShareAppMessage',
+                        'onMenuShareTimeline',
+                    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                })
+            }
+        })
+        wx.ready(function () {
+            /*发送给朋友*/
+            wx.onMenuShareAppMessage({
+                title: shareWord.title, // 分享标题
+                desc: shareWord.desc, // 分享描述
+                link: shareWord.localHref+'?agentID=null&type=1', // 分享链接
+                imgUrl: shareWord.imgUrl, // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            })
+
+            /*分享到朋友圈*/
+            wx.onMenuShareTimeline({
+                title: shareWord.title, // 分享标题
+                link: shareWord.localHref+'?agentID=null&type=1', // 分享链接
+                imgUrl: shareWord.imgUrl, // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            })
+        })
+
+    </script>
+</head>
+<body>
+<div class="container" >
+    <div class="titleImg"></div>
+    <div class="submitBox">
+        <p class="inputView">
+            <input type="text" maxlength="11" placeholder="输入注册有栗的手机号" id="phone">
+        </p>
+        <p class="submitView">
+            <button id="submitBtn">生成转发页面</button>
+        </p>
+    </div>
+    <!--<div class="activityNotes">-->
+        <!--<div class="info">-->
+            <!--<p>活动须知：</p>-->
+            <!--<p>生鲜为顺丰包邮，其他品类我们会选择最合适的快递。</p>-->
+            <!--<p>发货时间为【3个工作日内】，不会拖延至年后，大家放心。</p>-->
+            <!--<p>1、每段视频中会有【红包口令】，可至支付宝输入口令领取现金红包！请注意观看视频，不要错过红包哦。</p>-->
+            <!--<p>2、活动期间下单均可参与现场小程序抽奖，最高赢取价值200元礼品。因奖品随购买的商品一起发货，未购买本次专场商品的无法为您发货哦。未成功领取的抽奖资格将随机抽送给其他下单买家。</p>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+</body>
+<script>
+    $(function () {
+        joinActivity()
+    })
+//    var url ='http://dev.gemii.cc:58080/lizcloud/api/activity-api/noauth/isagent?activityCode=SPCX&phone=';
+    var url ='http://cloud.gemii.cc/lizcloud/api/activity-api/noauth/isagent?activityCode=SPCX&phone=';
+    var agentID = null;
+    function joinActivity() {
+        $('#submitBtn').get(0).addEventListener('click',function () {
+            var phone = $('#phone').val()
+            if(phone!=''){
+                if(isPhone(phone)){
+                   $.ajax({
+                       url:url + phone,
+                       type:'GET',
+                       success:function (res) {
+                           var resData = eval(res)
+                           if(resData.resultCode == 100&&resData.resultContent!=null){ //代理商
+                               agentID = resData.resultContent.code
+                           }
+                           window.location.href='productIndex.html?agentID='+agentID
+                           $('#phone').val('')
+                       }
+                   })
+                }
+            }else{
+                alert('请输入手机号')
+            }
+
+        })
+    }
+
+</script>
+</html>

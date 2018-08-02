@@ -1,0 +1,303 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: PingFangSC-Regular;
+  -webkit-tap-highlight-color:rgba(255,255,255,0);
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+input::-webkit-input-placeholder {
+  color: #9B9B9B;
+}
+a{
+  text-decoration: none;
+  display: block;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+a[title='站长统计']{
+  display: none;
+}
+input::-webkit-input-placeholder {
+  color: #9B9B9B;
+}
+a {
+  text-decoration: none;
+  display: block;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+a[title='站长统计'] {
+  display: none;
+}
+.ms-hundredPercent {
+  width: 100%;
+  height: 100%;
+}
+.ms-productTopic {
+  /*model*/
+}
+/*productTopic5*/
+.productTopic5 .container .titleImg {
+  background: url("../images/RectangleTitle-home-5.png") no-repeat;
+  height: 840px;
+}
+.productTopic5 .product-container .titleImg {
+  background: url("../images/RectangleTitle-5.png") no-repeat;
+  height: 880px;
+}
+.ms-productTopic .container {
+  position: absolute;
+  width: 100%;
+}
+
+.ms-productTopic .container .submitBox {
+  text-align: center;
+  margin-bottom: 100px;
+}
+.ms-productTopic .container .submitBox p {
+  margin: 20px auto;
+}
+.ms-productTopic .container .submitBox .inputView input {
+  -webkit-appearance: none;
+  outline: 0;
+  background: #FFFFFF;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  width: 400px;
+  padding: 19px 30px;
+  margin: 15px;
+  font-size: 28px;
+  color: #000000;
+  font-family: PingFangSC-Regular;
+  text-indent: 10px;
+}
+.ms-productTopic .container .submitBox .submitView #submitBtn {
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  width: 460px;
+  border-radius: 100px;
+  height: 80px;
+  line-height: 80px;
+  font-family: PingFangSC-Semibold;
+  font-size: 36px;
+  color: #FFFFFF;
+  letter-spacing: 5.62px;
+  background: #FF5152;
+  box-shadow: 0 2px 4px 0 #F75767;
+}
+.ms-productTopic .container .submitBox p:nth-child(3) #submitBtn:hover,
+.ms-productTopic .container .submitBox p:nth-child(3) #submitBtn:active {
+  opacity: 0.8;
+}
+.ms-productTopic .productTitle {
+  position: absolute;
+  width: 100%;
+}
+.ms-productTopic .productTitle .info {
+  position: absolute;
+  bottom: 52px;
+  font-size: 25px;
+  color: #DB1837;
+  margin: 0 50px;
+}
+.ms-productTopic .ps-title {
+  /*background: url("../images/Bitmap.png") no-repeat;*/
+  width: 400px;
+  height: 80px;
+  line-height: 80px;
+  display: block;
+  position: relative;
+  margin: 40px auto;
+  background: #FF5152;
+  border-radius: 100px;
+  text-align: center;
+}
+.ms-productTopic .ps-title p {
+  font-family: PingFangSC-Semibold;
+  font-size: 42px;
+  color: #FFFFFF;
+  letter-spacing: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.46);
+}
+.ms-productTopic .product-container .productSpike {
+  margin-top: -35px;
+}
+.ms-productTopic .productSpike .ps-product {
+  clear: both;
+}
+.ms-productTopic .productSpike .ps-product .spikeBox {
+  margin: 30px;
+  display: flex;
+  background-color: #fff;
+}
+.ms-productTopic .spikeBox .wrapper {
+  width: 100%;
+  clear: both;
+}
+.ms-productTopic .spikeBox .wrapper .ps-p-left {
+  width: 45%;
+  float: left;
+}
+.ms-productTopic .productSpike .ps-product .ps-p-left img {
+  width: 270px;
+  height: auto;
+}
+.ms-productTopic .spikeBox .wrapper .ps-p-right {
+  padding: 30px 0;
+  width: 52%;
+  float: left;
+  height: calc(40%);
+}
+.ms-productTopic .ps-p-right .spikeTitle {
+  font-family: PingFangSC-Semibold;
+  font-size: 28px;
+  color: #00591D;
+  letter-spacing: 0;
+  line-height: 30px;
+  margin-bottom: 14%;
+}
+.ms-productTopic .ps-p-right .spikeInfo {
+  text-align: center;
+}
+.ms-productTopic .ps-p-right .spikeInfo .info-num {
+  font-family: PingFangSC-Semibold;
+  font-size: 28px;
+  color: #FA5564;
+  height: 40px;
+  line-height: 40px;
+  margin: 20px 0;
+}
+.ms-productTopic .ps-p-right .spikeInfo .info-time {
+  background: #F75767;
+  border-radius: 100px;
+  width: 220px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-family: PingFangSC-Semibold;
+  font-size: 26px;
+  color: #FFFFFF;
+  display: inline-block;
+}
+.ms-productTopic .productListWrapper {
+  width: 100%;
+  display: inline-block;
+  padding-bottom: 30px;
+}
+.ms-productTopic .productList {
+  display: inline-block;
+  clear: both;
+  width: 100%;
+}
+.ms-productTopic .productList .list:nth-child(2n+1) {
+  margin-left: 30px;
+  margin-right: 12px;
+}
+.ms-productTopic .productList .list:nth-child(2n+2) {
+  margin-left: 12px;
+  margin-right: 30px;
+}
+.ms-productTopic .productList .list {
+  width: 43.4%;
+  float: left;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  background-color: #fff;
+}
+.ms-productTopic .productList .list .list-a {
+  display: block;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.ms-productTopic .productList .list .list-img {
+  text-align: center;
+  margin-top: 10px;
+}
+.ms-productTopic .productList .list .list-img img {
+  width: 230px;
+  height: 230px;
+}
+.ms-productTopic .productList .list .list-title {
+  font-family: PingFangSC-Regular;
+  font-size: 24px;
+  color: #4A4A4A;
+  margin: 20px 15px;
+  height: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+.ms-productTopic .productList .list .list-price {
+  clear: both;
+  width: 100%;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+}
+.ms-productTopic .productList .list .list-price .priceInfo {
+  float: left;
+  font-family: PingFangSC-Regular;
+  font-size: 20px;
+  color: #FA5564;
+  margin-left: 10px;
+}
+.ms-productTopic .productList .list .list-price .shopBtn {
+  float: right;
+  background: #F75767;
+  border-radius: 100px;
+  width: 160px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-family: PingFangSC-Semibold;
+  font-size: 26px;
+  color: #FFFFFF;
+  margin-right: 10px;
+}
+.ms-productTopic .activityNotes {
+  /*background:url("../images/满赠banner.png") no-repeat;*/
+  background-size: cover;
+  width: 100%;
+  height: 360px;
+}
+.ms-productTopic .model {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+.ms-productTopic .model div {
+  position: absolute;
+  right: 45px;
+  top: 45px;
+}
+.ms-productTopic .model div img {
+  float: right;
+}
+.ms-productTopic .model div p {
+  font-family: PingFangSC-Semibold;
+  font-size: 36px;
+  color: #FFFFFF;
+  text-align: center;
+  margin-top: 120px;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi, user-scalable=no">
+    <title>澳臻辅食专题</title>
+    <style>
+        body{
+           background: url("images/Backgroup-8.png") repeat-y;
+        }
+    </style>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/jweixin-1.2.0.js"></script>
+    <script>
+        /******************************微信分享操作*******************************/
+        var currentUrl = location.href.split('#')[0];
+        var shareWord={
+            "title": '澳臻宝宝辅食专场',
+            "desc":'不加一滴水的纯正果蔬辅食，第二件半价哦',
+            "imgUrl":API_PATH+product+'/images/sharePic8.png',
+            "localHref":API_PATH+product+'/productIndex8.html?agentID=null&type=1'
+        }
+        setWxShareConent(currentUrl,shareWord)
+    </script>
+</head>
+<body>
+<div class="ms-productTopic productTopic8">
+    <div class="container">
+        <div class="titleImg"></div>
+        <div class="submitBox">
+            <p class="inputView">
+                <input type="text" maxlength="11" placeholder="输入注册有栗的手机号" id="phone">
+            </p>
+            <p class="submitView">
+                <button id="submitBtn">生成转发页面</button>
+            </p>
+        </div>
+
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        joinActivity()
+    })
+//    var url ='http://dev.gemii.cc:58080/lizcloud/api/activity-api/noauth/isagent?activityCode=SPCX&phone=';
+    var url ='http://cloud.gemii.cc/lizcloud/api/activity-api/noauth/isagent?activityCode=SPCX&phone=';
+    var agentID = null;
+    function joinActivity() {
+        $('#submitBtn').get(0).addEventListener('click',function () {
+//            _czc.push(['_trackEvent','生成转发页面','点击','有栗聚福利',100,'submitBtn'])
+            var phone = $('#phone').val()
+            if(phone!=''){
+                if(isPhone(phone)){
+                   $.ajax({
+                       url:url + phone,
+                       type:'GET',
+                       success:function (res) {
+                           var resData = eval(res)
+                           if(resData.resultCode == 100&&resData.resultContent!=null){ //代理商
+                               agentID = resData.resultContent.code
+                           }
+                           window.location.href='productIndex8.html?agentID='+agentID
+                           $('#phone').val('')
+                       }
+                   })
+                }
+            }else{
+                alert('请输入手机号')
+            }
+
+        })
+    }
+
+</script>
+</html>

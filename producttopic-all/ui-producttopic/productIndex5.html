@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi, user-scalable=no">
+    <title>洗护专场</title>
+    <style>
+        body{
+            background: url("images/Rectangle-5.png") repeat-y;
+        }
+    </style>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/jweixin-1.2.0.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/data5.js"></script>
+    <script>
+        /******************************微信分享操作*******************************/
+        var currentUrl = location.href.split('#')[0];
+        var shareWord={
+            "title": '松达洗护节 第二件9.9元',
+            "desc":'松达洗护节，全部商品第二件9.9元',
+            "imgUrl":API_PATH+product+'/images/sharePic5.png',
+            "localHref":location.href+'&type=1'
+        }
+        setWxShareConent(currentUrl,shareWord,'HOME')
+    </script>
+</head>
+<body>
+<div class="ms-productTopic productTopic5">
+    <div class="product-container container">
+        <div class="titleImg"></div>
+        <div class="productBox">
+            <div class="productSpike">
+                <div class="ps-product"></div>
+            </div>
+        </div>
+    </div>
+    <div class="model" style="display: none">
+        <div>
+            <img src="images/shareArrow.png" alt="">
+            <p>活动已生成<br>快让小伙伴们看看吧～</p>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    $(function () {
+        init()
+        if(getQueryString('type')!=1){ //分享的链接，1表示 不需要提示分享
+            $(".model").show()
+            handleModel()
+        }
+    })
+    function init() {
+        //获取代理ID
+        var agentID;
+        var url='https://m.gemii.maimaias.cn/sq/'
+        if(getQueryString('agentID')!='null'&&getQueryString('agentID')!=null){
+            agentID = getQueryString('agentID')
+        }else{
+            agentID = 'Q2ZU'
+        }
+        console.log(agentID,1)
+//        console.log(productData,2)
+
+        //秒杀
+        productData.forEach(function (item,index) {
+            var spikeBranch = '<a class="spikeBox" id="spikeBox-'+index+'" data-href="'+url+item.linkUrl+agentID+'" data-index="1'+index+'" href="'+url+item.linkUrl+agentID+'">' +
+                '              <div class="wrapper">' +
+                '                  <div class="ps-p-left">' +
+                '                    <img src="'+item.imgUrl+'" alt="">' +
+                '                   </div>' +
+                '                   <div class="ps-p-right">' +
+                '                       <div class="spikeTitle">'+item.title+'</div>' +
+                '                       <div class="spikeInfo">' +
+                '                           <p class="info-num"><span>'+item.price+'</span></p>'+
+                '                           <p class="info-time"><span>立即购买</span></p>'+
+                '                       </div>'+
+                '                    </div>' +
+                '               </div>'+
+                '               </a>';
+
+            $('.ps-product').append(spikeBranch)
+        })
+    }
+</script>
+</html>

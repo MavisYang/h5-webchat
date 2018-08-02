@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">
+    <title>儿童图书专场</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/jweixin-1.2.0%20copy.js"></script>
+    <script src="js/function.js"></script>
+    <script>
+        /*****************************judage the browse*******************************/
+        // 对浏览器的UserAgent进行正则匹配，不含有微信独有标识的则为其他浏览器
+//         var useragent = navigator.userAgent;
+//         if (useragent.match(/MicroMessenger/i) != 'MicroMessenger') {
+//             // 这里警告框会阻塞当前页面继续加载
+//             alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+//             // 以下代码是用javascript强行关闭当前页面
+//             var opened = window.open('about:blank', '_self');
+//             opened.opener = null;
+//             opened.close();
+//         }
+
+        /******************************微信分享操作*******************************/
+        var currentUrl = location.href.split('#')[0];
+        var url = encodeURIComponent(currentUrl);
+        $.ajax({
+            type:'GET',
+            url:"/wx/getJssdkConfig?url=" + url,
+            success:function (data) {
+                wx.config({
+                    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                    appId: data.appid, // 必填，公众号的唯一标识
+                    timestamp: data.timestamp, // 必填，生成签名的时间戳
+                    nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                    signature: data.signature,// 必填，签名，见附录1
+                    jsApiList: [
+                        'onMenuShareAppMessage',
+                        'onMenuShareTimeline',
+                    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+                })
+            }
+        })
+
+        wx.ready(function () {
+            /*发送给朋友*/
+            wx.onMenuShareAppMessage({
+                title: shareWord.title, // 分享标题
+                desc: shareWord.desc, // 分享描述
+                link: location.href+'&type=1', // 分享链接
+                imgUrl: shareWord.imgUrl, // 分享图标
+                type: '', // 分享类型,music、video或link，不填默认为link
+                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            })
+
+            /*分享到朋友圈*/
+            wx.onMenuShareTimeline({
+                title: shareWord.title, // 分享标题
+                link: location.href+'&type=1', // 分享链接
+                imgUrl: shareWord.imgUrl, // 分享图标
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            })
+        })
+
+    </script>
+</head>
+<body>
+<!--<div class="backgroundBox"></div>-->
+<div class="product-container">
+    <div class="titleImg"></div>
+    <div class="activityNotes">
+        <div class="info">
+            <p>儿童图书专场，高品质超低价，全场商品4折起。</p>
+            <p> 多个系列，疯狂动物城、海底总动员、小马宝莉、小猪佩奇等等，更有适用幼儿头脑开发启智的图书套装，是送给宝宝的最好礼物。</p>
+        </div>
+    </div>
+    <div class="productBox">
+        <div class="productListWrapper">
+            <div class="productList"></div>
+        </div>
+    </div>
+</div>
+<div class="model" style="display: none">
+    <div>
+        <img src="images/shareArrow.png" alt="">
+        <p>活动已生成<br>快让小伙伴们看看吧～</p>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        init()
+        if(getQueryString('type')!=1){ //分享的链接，1表示 不需要提示分享
+            $(".model").show()
+            handleModel()
+        }
+    })
+    function init() {
+        //获取代理ID
+        var agentID;
+        var url='https://m.gemii.maimaias.cn/sq/'
+        if(getQueryString('agentID')!='null'&&getQueryString('agentID')!=null){
+            agentID = getQueryString('agentID')
+        }else{
+            agentID = 'Q2ZU'
+        }
+        console.log(agentID,1)
+        var productData = dataLoad("js/data.json");
+        console.log(productData,2)
+
+        //糖果饼干
+        productData.forEach(function (item,index) {
+            var branchs = ' <div class="list">' +
+                '                <a class="list-a" data-href="'+url+item.linkUrl+agentID+'" data-index="2'+index+'" id="product1-'+index+'" href="javascript:void(0)">' +
+                '                    <p><img src="'+item.imgUrl+'" alt=""></p>' +
+                '<p>'+item.title+'</p>' +
+                '                    <p>有栗价：¥<span>'+item.price+'</span></p>' +
+                '                    <p><span class="shopIcon"></span><span>立即购买</span></p>' +
+                '                </a>' +
+                '            </div>'
+
+            $('.productList').append(branchs)
+        })
+
+        //特惠专场click
+        $('.productBox').on('click','.list-a',function () {
+            window.location.href = $(this).attr('data-href')
+        })
+    }
+
+    function handleModel() {
+        var modelFlag = true
+        if(modelFlag){
+            $('body').css('overflow','hidden')
+        }else{
+            $('body').css('overflow','auto')
+        }
+
+        $(".model").get(0).addEventListener('touchstart',function () {
+            modelFlag = false
+            $('body').css('overflow','auto')
+            $(".model").hide()
+
+        })
+
+        setTimeout(function () {
+            modelFlag = false
+            $('body').css('overflow','auto')
+            $(".model").hide()
+        },3000)
+    }
+</script>
+</html>

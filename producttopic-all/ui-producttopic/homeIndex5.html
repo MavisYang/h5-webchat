@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=750,user-scalable=no,target-densitydpi=device-dpi, user-scalable=no">
+    <title>洗护专场</title>
+    <style>
+        body{
+            background: url("images/Rectangle-5.png") repeat-y;
+        }
+    </style>
+    <link rel="stylesheet" href="css/index.css">
+    <!--<script type="text/javascript">-->
+        <!--//监测-->
+        <!--var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");-->
+        <!--document.write(unescape("%3Cspan id='cnzz_stat_icon_1273201395'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1273201395' type='text/javascript'%3E%3C/script%3E"));-->
+    <!--</script>-->
+
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/jweixin-1.2.0.js"></script>
+    <script>
+        /******************************微信分享操作*******************************/
+        var currentUrl = location.href.split('#')[0];
+        var shareWord={
+            "title": '松达洗护节 第二件9.9元',
+            "desc":'松达洗护节，全部商品第二件9.9元',
+            "imgUrl":API_PATH+product+'/images/sharePic5.png',
+            "localHref":API_PATH+product+'/productIndex5.html?agentID=null&type=1'
+        }
+        setWxShareConent(currentUrl,shareWord)
+    </script>
+</head>
+<body>
+<div class="ms-productTopic productTopic5">
+    <div class="container">
+        <div class="titleImg"></div>
+        <div class="submitBox">
+            <p class="inputView">
+                <input type="text" maxlength="11" placeholder="输入注册有栗的手机号" id="phone">
+            </p>
+            <p class="submitView">
+                <button id="submitBtn">生成转发页面</button>
+            </p>
+        </div>
+
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        joinActivity()
+    })
+//    var url ='http://dev.gemii.cc:58080/lizcloud/api/activity-api/noauth/isagent?activityCode=SPCX&phone=';
+    var url ='http://cloud.gemii.cc/lizcloud/api/activity-api/noauth/isagent?activityCode=SPCX&phone=';
+    var agentID = null;
+    function joinActivity() {
+        $('#submitBtn').get(0).addEventListener('click',function () {
+//            _czc.push(['_trackEvent','生成转发页面','点击','有栗聚福利',100,'submitBtn'])
+            var phone = $('#phone').val()
+            if(phone!=''){
+                if(isPhone(phone)){
+                   $.ajax({
+                       url:url + phone,
+                       type:'GET',
+                       success:function (res) {
+                           var resData = eval(res)
+                           if(resData.resultCode == 100&&resData.resultContent!=null){ //代理商
+                               agentID = resData.resultContent.code
+                           }
+                           window.location.href='productIndex5.html?agentID='+agentID
+                           $('#phone').val('')
+                       }
+                   })
+                }
+            }else{
+                alert('请输入手机号')
+            }
+
+        })
+    }
+
+</script>
+</html>

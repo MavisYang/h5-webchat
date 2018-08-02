@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=750, user-scalable=no, target-densitydpi=device-dpi">
+    <title>兔本夏装特卖</title>
+    <style>
+        body{
+            background: #FFA1B4;
+        }
+    </style>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/function.js"></script>
+    <script src="js/jweixin-1.2.0.js"></script>
+    <script src="js/data7.js"></script>
+    <script>
+        /******************************微信分享操作*******************************/
+        var currentUrl = location.href.split('#')[0];
+        var shareWord= {
+            "title":'夏装特卖 低至9.9元',
+            "desc":'品牌童装兔本，夏季特卖9.9元起',
+            "imgUrl": API_PATH + product + '/images/sharePic7.png',
+            "localHref":location.href+'&type=1'
+        }
+        setWxShareConent(currentUrl,shareWord)
+    </script>
+</head>
+<body>
+<div class='ms-productTopic productTopic7'>
+    <div class="product-container container">
+        <div class="titleImg"></div>
+        <div class="productBox">
+            <!--<div class="productSpike">-->
+            <!--</div>-->
+            <!--<div class="productListWrapper">-->
+            <!--</div>-->
+
+        </div>
+    </div>
+    <div class="model" style="display: none">
+        <div>
+            <img src="images/shareArrow.png" alt="">
+            <p>活动已生成<br>快让小伙伴们看看吧～</p>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        init()
+        if(getQueryString('type')!=1){ //分享的链接，1表示 不需要提示分享
+            $(".model").show()
+            handleModel()
+        }
+    })
+    function init() {
+        //获取代理ID
+        var agentID = 'Q2ZU'
+        var url='https://m.gemii.maimaias.cn/sq/'
+        if(getQueryString('agentID')!='null'&&getQueryString('agentID')!=null){
+            agentID = getQueryString('agentID')
+        }
+        console.log(agentID,1)
+        console.log(productData,2)
+
+//        特惠专场
+        productData.specialSession.forEach(function (task,index) {
+            var branch = ' <div class="productListWrapper">' +
+//                '       <div class="ps-title"><p>'+task.dataTitle+'</p></div>'+
+                '       <div class="productList'+index+' productList"></div>' +
+                '       </div>'
+            $('.productBox').append(branch)
+
+            task.data.forEach(function (item) {
+                var branchList = ' <div class="list">' +
+                    '                <a class="list-a" data-href="'+url+item.linkUrl+agentID+'" data-index="2'+index+'" id="product1-'+index+'" href="'+url+item.linkUrl+agentID+'">' +
+                    '                    <div class="list-img"><img src="'+item.imgUrl+'" alt=""></div>' +
+                    '                    <div class="list-title">'+item.title+'</div>' +
+                    '<div class="list-price">' +
+                    '         <p class="priceInfo">¥<span>'+item.price+'</span></p>' +
+                    '            <p class="priceBtn"><span class="shopBtn">立即购买</span></p>' +
+                    '   </div> '+
+                    '                </a>' +
+                    '            </div>'
+                listAppend(index, branchList, 'LIST')
+            })
+        })
+    }
+</script>
+</html>

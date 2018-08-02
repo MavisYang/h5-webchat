@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        .btnBox{
+            background-image: linear-gradient(-133deg, #F95639 0%, #F03340 50%, #F03340 100%);
+            box-shadow: 0 14px 29px 0 rgba(224,44,56,0.36);
+            border-radius: 100px;
+            text-align: center;
+            cursor: pointer;
+            margin: 50px auto;
+        }
+        .btnBox .joinBtn{
+            font-family: PingFangSC-Regular;
+            font-size: 30px;
+            color: #FFFFFF;
+            height: 88px;
+            line-height: 88px;
+            width: 100%;
+            border: none;
+            outline: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class='btnBox'>
+        <a href="" target="_blank" class="joinBtn" id='joinBtn'>打开栗子集市APP</a>
+    </div>
+</body>
+<script src="./js/jquery-3.0.0.min.js"></script>
+<script>
+    $(function () {
+        let u = navigator.userAgent;
+        let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        if(isAndroid){
+            console.log(1)
+            $('#joinBtn').attr('href','web_wake_up_gemii://gemii/team_invite')
+        }
+        if(isIOS){
+            console.log(2)
+            $('#joinBtn').attr('href','WebWakeUpGemii://')
+        }
+        $('#joinBtn').on('click',function () {
+            openApp()
+        })
+        
+    })
+    function openApp() {
+        console.log(111)
+        let u = navigator.userAgent;
+        let config = {
+            android_url: 'https://www.pgyer.com/s7UO',
+            ios_url: 'https://itunes.apple.com/cn/app/%E6%A0%97%E5%AD%90%E9%9B%86%E5%B8%82/id1377979044?mt=8',
+            scheme_IOS: 'WebWakeUpGemii://',
+//            scheme_IOS: 'com.baidu.tieba://',
+//            scheme_Android: 'com.baidu.tieba://app',
+//            scheme_Android: 'web_wake_up_gemii://gemii/team_invite',
+            scheme_Android: 'web_wake_up_gemii://',
+            timeout: 5000
+        };
+        let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+        let startTime = Date.now();
+        let iframe = null;
+        if (isIOS) {
+            window.location = config.scheme_IOS;
+        }
+        if (isAndroid) {
+            iframe = document.createElement('iframe');
+            iframe.src = config.scheme_Android;
+            iframe.style.display = 'none';
+            document.body.appendChild(iframe);
+//             window.location = config.scheme_Android;
+        }
+        setTimeout(() => {
+            let endTime = Date.now();
+            if ((endTime - startTime) > config.timeout) {
+                if (isAndroid) {
+                    window.location.href = config.android_url;
+                    document.body.removeChild(iframe);
+                }
+            } else {
+                window.close();
+            }
+        }, config.timeout);
+    }
+</script>
+</html>
