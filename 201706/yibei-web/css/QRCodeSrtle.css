@@ -1,0 +1,69 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font-family: PingFangSC-Regular;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  color: #333333;
+}
+body {
+  background: url("../images/qrcode.png") no-repeat;
+  background-size: cover;
+}
+.QR-view {
+  text-align: center;
+}
+.QRd-title {
+  font-family: PingFangSC-Semibold;
+  font-size: 72px;
+  color: #333;
+  margin: 10px 0 15px 0;
+}
+.left-k,.right-k{
+  width: 23px;
+  height: 23px;
+  display: inline-block;
+}
+.left-k{
+  border-left: 5px solid;
+  border-top: 5px solid;
+  vertical-align: top;
+  margin-right: -20px;
+  border-top-left-radius: 6px;
+}
+.right-k{
+  border-right:  5px solid;
+  border-bottom: 5px solid;
+  vertical-align: bottom;
+  margin-left: -20px;
+  border-bottom-right-radius: 6px;
+}
+.QR-info{
+  font-size: 28px;
+  margin-top: 80px;
+}
+.QR-prompt{
+  font-size: 28px;
+  margin-top: 57px;
+}
+.QR-code{
+  display: inline-block;
+  border-radius: 12px;
+  margin-top: 81px;
+  width: 380px;
+  height: 380px;
+  background: #ffffff;
+}
+.QR-code img {
+  width: 358px;
+  height: 358px;
+  text-align: center;
+  margin-top: 11px;
+}
+.QR-footer {
+  margin-top: 140px;
+}
+
